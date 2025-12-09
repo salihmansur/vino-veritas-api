@@ -4,7 +4,9 @@ import numpy as np
 
 # 1. Set up Flask: Create a basic Flask application.
 app = Flask(__name__)
-
+@app.route("/", methods=["GET"])
+def home():
+    return "Vino Veritas API is running. Use POST /predict."
 # 2. Load the Model (and scaler) saved in Part 1.
 model = joblib.load("vino_veritas_model.pkl")
 scaler = joblib.load("scaler.pkl")
@@ -47,3 +49,4 @@ def predict():
 # Run the app if this file is executed directly
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
+
