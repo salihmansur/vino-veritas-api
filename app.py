@@ -13,7 +13,8 @@ CORS(app)
 @app.route("/", methods=["GET"])
 def home():
     return "Vino Veritas API is running. Use POST /predict."
-# 2. Load the Model (and scaler) saved in Part 1.BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# 2. Load the Model (and scaler) saved in Part 1.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 model = joblib.load(os.path.join(BASE_DIR, "vino_veritas_model.pkl"))
 scaler = joblib.load(os.path.join(BASE_DIR, "scaler.pkl"))
