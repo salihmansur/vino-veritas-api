@@ -10,8 +10,6 @@ app = Flask(__name__)
 def home():
     return jsonify({"status": "vino-veritas-api running"})
 CORS(app)
-@app.route("/", methods=["GET"])
-def home():
     return "Vino Veritas API is running. Use POST /predict."
 # 2. Load the Model (and scaler) saved in Part 1.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
