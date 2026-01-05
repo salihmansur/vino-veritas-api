@@ -5,6 +5,9 @@ import numpy as np
 
 # 1. Set up Flask: Create a basic Flask application.
 app = Flask(__name__)
+@app.route("/")
+def home():
+    return jsonify({"status": "vino-veritas-api running"})
 CORS(app)
 @app.route("/", methods=["GET"])
 def home():
