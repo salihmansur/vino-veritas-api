@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import numpy as np
 
 # 1. Set up Flask: Create a basic Flask application.
 app = Flask(__name__)
+CORS(app)
 @app.route("/", methods=["GET"])
 def home():
     return "Vino Veritas API is running. Use POST /predict."
