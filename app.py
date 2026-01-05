@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
 import numpy as np
+import os
 
 # 1. Set up Flask: Create a basic Flask application.
 app = Flask(__name__)
@@ -12,9 +13,10 @@ CORS(app)
 @app.route("/", methods=["GET"])
 def home():
     return "Vino Veritas API is running. Use POST /predict."
-# 2. Load the Model (and scaler) saved in Part 1.
-model = joblib.load("vino_veritas_model.pkl")
-scaler = joblib.load("scaler.pkl")
+# 2. Load the Model (and scaler) saved in Part 1.BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = joblib.load(os.path.join(BASE_DIR, "vino_veritas_model.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "scaler.pkl"))
 
 # The 11 features in the same order as training
 FEATURE_ORDER = [
